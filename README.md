@@ -12,7 +12,8 @@ Python3
 
 ### Screenshot/GIF showing the sample use of the script
 <!--Remove the below lines and add yours -->
-![output](https://github.com/ChengYiLoi/internet_connection_check/output.png)
+![output](https://github.com/ChengYiLoi/internet_connection_check/assets/28855654/17ca04be-a821-463c-abc8-1803a0bd3923)
+
 
 ## *Author Name*
 <!--Remove the below lines and add yours -->
