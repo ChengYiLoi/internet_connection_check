@@ -3,6 +3,7 @@ import requests, time
 
 import os
 
+### Note from wayne: might want to consider the flags used as it works differently for different system
 def internet_connection_test(url:str):
   print(f'Attempting to connect to {url} to determine internet connection status.')
   
@@ -41,6 +42,26 @@ def check_download_speed(url:str):
     start_time = time.time()
     response = requests.get(url, stream=True)
     
+    '''
+    From wayne: response.headers.get('content-length') is an information obtained from HTTP header,
+    which might not measure the total time taken to download the file.
+    The suggested code will provide iteration over the downloaded file, and will exit the loop once
+    the file fully downloaded.
+    Also note that the time elapsed will seem similar compared with your existing method because the
+    file size is too small to see a difference.
+    '''
+    # total_length = 0
+    # for data in response.iter_content(chunk_size=4096):
+    #   total_length += len(data)
+    # elapsed_time = time.time() - start_time
+    # print(f'Elapsed time: {elapsed_time}')
+      
+    # download_speed_mbps = bytes_to_mb(total_length) / elapsed_time
+    
+    # print(f'Total length in mb: {round(bytes_to_mb(total_length), 1)}')
+    # print(f'Download speed in mbps: {round(download_speed_mbps, 1)}')
+    ################################
+
     # in Bytes
     total_length = float(response.headers.get('content-length'))
     
