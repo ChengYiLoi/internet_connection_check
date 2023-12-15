@@ -50,11 +50,12 @@ def check_download_speed(url:str):
     Also note that the time elapsed will seem similar compared with your existing method because the
     file size is too small to see a difference.
     '''
-    # total_length = 0
-    # for data in response.iter_content(chunk_size=4096):
-    #   total_length += len(data)
-    # elapsed_time = time.time() - start_time
-    # print(f'Elapsed time: {elapsed_time}')
+    
+    total_length = 0
+    for data in response.iter_content(chunk_size=4096):
+      total_length += len(data)
+    elapsed_time = time.time() - start_time
+    #print(f'Elapsed time: {elapsed_time}')
       
     # download_speed_mbps = bytes_to_mb(total_length) / elapsed_time
     
@@ -62,8 +63,8 @@ def check_download_speed(url:str):
     # print(f'Download speed in mbps: {round(download_speed_mbps, 1)}')
     ################################
 
-    # in Bytes
-    total_length = float(response.headers.get('content-length'))
+    # in Bytes (wrong)
+    #total_length = float(response.headers.get('content-length'))
     
     if total_length is not None:
       # time since epoch in seconds
